@@ -19,7 +19,7 @@ public class Farmacia {
 	@ManyToOne
 	private Direccion direccion;
 	@ManyToOne
-	private Punto punto;
+	private Punto geoLocalizacion;
 	
 	public Farmacia() {
 		
@@ -27,21 +27,21 @@ public class Farmacia {
 	
 
 	
-	public Farmacia(String nombre, String telefono, String diaDeTurno, Direccion direccion, Punto punto) {
+	public Farmacia(String nombre, String telefono, String diaDeTurno, Direccion direccion, Punto geoLocalizacion) {
 		this.nombre = nombre;
 		this.telefono = telefono;
 		this.diaDeTurno = diaDeTurno;
 		this.direccion = direccion;
-		this.punto = punto;
+		this.geoLocalizacion = geoLocalizacion;
 	}
 
 
 
-	public Punto getPunto() {
-		return punto;
+	public Punto getgeoLocalizacion() {
+		return geoLocalizacion;
 	}
-	public void setPunto(Punto punto) {
-		this.punto = punto;
+	public void setPunto(Punto geoLocalizacion) {
+		this.geoLocalizacion = geoLocalizacion;
 	}
 	public Direccion getDireccion() {
 		return direccion;

@@ -29,7 +29,10 @@ public class Comuna {
 		this.nombre = nombre;
 	}
 
-
+	public void addBarrio() {
+		
+	}
+	
 	public List<Barrio> getBarrios() {
 		return barrios;
 	}

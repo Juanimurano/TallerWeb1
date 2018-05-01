@@ -87,7 +87,6 @@ public class FarmaciaTest extends SpringTest{
 				.add(Restrictions.eq("barrioBuscado.Nombre", "almagro"))
 				.list();
 		
-		
 		assertThat(farmaciasBuscadas.size()).isEqualTo(1);		
 	}
 }
