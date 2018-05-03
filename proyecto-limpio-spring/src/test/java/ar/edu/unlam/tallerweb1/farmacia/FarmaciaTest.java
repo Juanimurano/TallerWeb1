@@ -142,7 +142,7 @@ public class FarmaciaTest extends SpringTest {
 			.add(Restrictions.eq("diaDeTurno","Martes"))
 			.list();
 		
-		assertThat(farmaciasBuscadas.size()).isEqualTo(1);//¡Si hay una sola farmacia, no más de una, sino falla!
+		assertThat(farmaciasBuscadas.size()).isEqualTo(2);//¡Si hay una sola farmacia, no más de una, sino falla!
 	}
 	
 	@Test
