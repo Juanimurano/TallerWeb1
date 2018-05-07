@@ -13,19 +13,22 @@ public class Operaciones {
 	public ModelAndView Sumar(@PathVariable String operando1, @PathVariable String operando2) {
 		ModelMap model = new ModelMap();
 		
+		try {
+			Double resultado = Double.parseDouble(operando1) + Double.parseDouble(operando2);
 
-		Double resultado = Double.parseDouble(operando1) + Double.parseDouble(operando2);
-
-		
-		model.put("resultado", resultado);
-		model.put("operando1", operando1);
-		model.put("operando2", operando2);
-		model.put("operatoria", "suma");
-		
-
-		//	return new ModelAndView("ErrorView", model);
-
+			
+			model.put("resultado", resultado);
+			model.put("operando1", operando1);
+			model.put("operando2", operando2);
+			model.put("operatoria", "suma");
 			return new ModelAndView("ResultadoView", model);
+		}
+		catch (Exception e) {
+			
+			return new ModelAndView("ErrorView", model);
+		}
+		
+
 	}
 	
 	@RequestMapping("/Restar/{operando1}/{operando2}")
@@ -33,17 +36,22 @@ public class Operaciones {
 		ModelMap model = new ModelMap();
 		
 
-		Double resultado = Double.parseDouble(operando1) - Double.parseDouble(operando2);
+		try {
+			Double resultado = Double.parseDouble(operando1) - Double.parseDouble(operando2);
 
-		
-		model.put("resultado", resultado);
-		model.put("operando1", operando1);
-		model.put("operando2", operando2);
-		model.put("operatoria", "resta");
-
-		//	return new ModelAndView("ErrorView", model);
-
+			
+			model.put("resultado", resultado);
+			model.put("operando1", operando1);
+			model.put("operando2", operando2);
+			model.put("operatoria", "resta");
+			
 			return new ModelAndView("ResultadoView", model);
+		} catch (Exception e) {
+			
+			return new ModelAndView("ErrorView", model);
+		}
+
+	
 	}
 	
 	@RequestMapping("/Multiplicar/{operando1}/{operando2}")
@@ -51,17 +59,19 @@ public class Operaciones {
 		ModelMap model = new ModelMap();
 		
 
-		Double resultado = Double.parseDouble(operando1) * Double.parseDouble(operando2);
+		try {
+			Double resultado = Double.parseDouble(operando1) * Double.parseDouble(operando2);
 
-		
-		model.put("resultado", resultado);
-		model.put("operando1", operando1);
-		model.put("operando2", operando2);
-		model.put("operatoria", "multiplicacion");
-
-		//	return new ModelAndView("ErrorView", model);
+			
+			model.put("resultado", resultado);
+			model.put("operando1", operando1);
+			model.put("operando2", operando2);
+			model.put("operatoria", "multiplicacion");
 
 			return new ModelAndView("ResultadoView", model);
+		} catch (Exception e) {
+			return new ModelAndView("ErrorView", model);
+		}
 	}
 	
 	@RequestMapping("/Dividir/{operando1}/{operando2}")
@@ -69,17 +79,19 @@ public class Operaciones {
 		ModelMap model = new ModelMap();
 		
 
-		Double resultado = Double.parseDouble(operando1) / Double.parseDouble(operando2);
+		try {
+			Double resultado = Double.parseDouble(operando1) / Double.parseDouble(operando2);
 
-		
-		model.put("resultado", resultado);
-		model.put("operando1", operando1);
-		model.put("operando2", operando2);
-		model.put("operatoria", "division");
-
-		//	return new ModelAndView("ErrorView", model);
+			
+			model.put("resultado", resultado);
+			model.put("operando1", operando1);
+			model.put("operando2", operando2);
+			model.put("operatoria", "division");
 
 			return new ModelAndView("ResultadoView", model);
+		} catch (NumberFormatException e) {
+			return new ModelAndView("ErrorView", model);
+		}
 	}
 	
 }
