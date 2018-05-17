@@ -1,10 +1,15 @@
 package ar.edu.unlam.tallerweb1.controladores;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import ar.edu.unlam.tallerweb1.modelo.Usuario;
 
 @Controller
 public class Operaciones {
@@ -92,6 +97,24 @@ public class Operaciones {
 		} catch (NumberFormatException e) {
 			return new ModelAndView("ErrorView", model);
 		}
+	}
+	
+	@RequestMapping("/Mostrar-Tabla/{cantidad}")
+	public ModelAndView mostrarTabla(@PathVariable Integer cantidad) {
+		
+		ModelMap modeloTabla = new ModelMap();
+		Usuario usuario = new Usuario(); 
+		usuario.setEmail("mail");
+		List<Usuario> listaUsuarios = new ArrayList<Usuario>();
+		
+		for(int i=0; i < cantidad; i++){
+			
+			listaUsuarios.add(usuario);
+			
+		}
+		
+		modeloTabla.put("usuarios", listaUsuarios);		
+		return new ModelAndView("mostrarTabla" , modeloTabla);
 	}
 	
 }
