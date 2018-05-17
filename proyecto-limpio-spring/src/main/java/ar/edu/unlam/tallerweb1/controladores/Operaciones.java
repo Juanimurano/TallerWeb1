@@ -104,7 +104,7 @@ public class Operaciones {
 		
 		ModelMap modeloTabla = new ModelMap();
 		Usuario usuario = new Usuario(); 
-		usuario.setEmail("mail");
+		usuario.setEmail("mail@mail.com");
 		List<Usuario> listaUsuarios = new ArrayList<Usuario>();
 		
 		for(int i=0; i < cantidad; i++){
